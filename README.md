@@ -1,6 +1,8 @@
 # Tesseract OCR Speed Up  
 Supercharge Your OCR PDF to text Conversions with Multithreaded OCR!
+
 Tired of slow document processing in CPU? 
+
 Say hello to this blazing-fast OCR project powered by Tesseract and the magic of multiprocessing!
 
 ## Why we did it
