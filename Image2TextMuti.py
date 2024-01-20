@@ -14,13 +14,11 @@ import psutil
 from tkinter import filedialog
 from tkinter import *
 
-
 #start timer for  program
 start_time_program = time.time()
 custom_config = r' -l eng --oem 3 --psm 3 '
 #Set tesseract.exe full path. 
 pytesseract.pytesseract.tesseract_cmd = r'E:\Program Files\Tesseract-OCR\tesseract.exe'
-
 #========================Multiprocessing===============
 def worker(image):
     #Performs OCR on an image and returns the text
@@ -49,7 +47,7 @@ def Image_To_Text():
     file_path= input_folder_path.upper()
     if  file_path.endswith('.PDF'):
             pages_all = []
-            #=================================================================pdf2image================================================
+            #=================  pdf2image  ===========================
             #split out file name
             file_name=file_path[:-4].split('/')[-1]
             #convert pdf into image
@@ -63,8 +61,7 @@ def Image_To_Text():
                 page.save(image_name, "PNG", quality=100, dpi=dpi)                   
                 pages_all.append( "Page_" + str(i) + ".tif")
                 i = i+1    
-                
-            
+            #set totalnumber of pages in file              
             all_file_page = all_file_page + page_number
             #============================START Reading Image in pool=====================
             # Create a pool of worker processes.
@@ -74,7 +71,6 @@ def Image_To_Text():
             # Close the pool.
             pool.close()
             pool.join()
-
             print("Processing file " + file_path +" to text")
             # Process the results.
             for text in results:
@@ -101,51 +97,5 @@ def Image_To_Text():
     print('\n')
 
 
-
-'''
-def CMD_Call():
-
-    global    output_list,  log_folder, output_file, input_folder
-    #Read input argument from CMD
-    for i in range(len(sys.argv)):
-        sys.argv[i] = sys.argv[i].replace("/", "\\")
-
-    input_folder = os.path.join(sys.argv[2])
-    input_folder_path = os.path.join(sys.argv[1],sys.argv[2])
-    output_folder = sys.argv[3]
-    output_list= sys.argv[1].split('\\')
-    output_file = os.path.join(sys.argv[3],sys.argv[2] +".csv")
-    #change escape characters
-    input_folder_escape_replace = input_folder.replace('\\', '/')
-    input_folder_path_escape_replace= input_folder_path.replace('\\', '/')
-    output_folder_escape_replace= output_folder.replace('\\', '/')
-    #log_folder_escape_replace = log_folder.replace('\\', '/')
-    input_path = False
-    out_path = False
-    log_path = False
-    #Check given paths are correct or not
-    if os.path.exists(input_folder_path_escape_replace):
-        input_path = True
-    else:
-        input_path = False
-        LOG = 'input path| ' + input_folder_path + ' does not exist'
-        #Error_Log(LOG)
-        print('input path| ' + input_folder_path + ' does not exist')
-
-    if os.path.exists(output_folder_escape_replace):
-        out_path = True
-    else:
-        out_path = False
-        os.makedirs(output_folder)
-
-    #If all paths/folder exist call Image_To_Text()
-    if input_path  :
-        # Call Image_To_Text
-        Image_To_Text(input_folder_path, output_folder)
-
-    else:
-        print('Error')
-
-'''
 if __name__ == "__main__":
     Image_To_Text()
