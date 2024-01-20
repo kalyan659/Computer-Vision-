@@ -1,0 +1,10 @@
+# Core dependencies
+pytesseract
+pdf2image
+psutil
+
+# GUI dependencies
+tk
+
+# Optional dependency (for timing operations)
+time
