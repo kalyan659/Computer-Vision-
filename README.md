@@ -1,1 +1,2 @@
-# speed up tesseract by using power of multiprocessing 
+# Tesseract OCR Speed Up  
+
