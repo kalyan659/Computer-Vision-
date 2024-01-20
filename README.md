@@ -23,7 +23,9 @@ Speed: Average 2-3 second per page using i7 12 core PC.
 
 ## How It Works:
 Install requirement files inyour python enviroment.
+
 Run the file and select a pdf file from any folder.
+
 File will be converted into text.
 
 ## Limitation:
