@@ -18,14 +18,15 @@ from tkinter import *
 #start timer for  program
 start_time_program = time.time()
 custom_config = r' -l eng --oem 3 --psm 3 '
+#Set tesseract.exe full path. 
 pytesseract.pytesseract.tesseract_cmd = r'E:\Program Files\Tesseract-OCR\tesseract.exe'
 
+#========================Multiprocessing===============
 def worker(image):
     #Performs OCR on an image and returns the text
     text = pytesseract.image_to_string(image,lang='eng', config=custom_config)
-    print('text')
     return text
-#============================================================ Image to Text Convertor Module  ================================================
+#==================== Image to Text Convertor Module  ============================
 def Image_To_Text():
     global  input_folder
     #set input File path from from directory
