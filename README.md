@@ -22,7 +22,9 @@ Versatility Unchained: Tackle any multipage PDF formats without breaking a sweat
 Speed: Average 2-3 second per page using i7 12 core PC.
 
 ## How It Works:
-Load Your Docs: Simply select a pdf file and thats it
+Install requirement files inyour python enviroment.
+Run the file and select a pdf file from any folder.
+File will be converted into text.
 
 ## Limitation:
 Only one pdf file at a time
