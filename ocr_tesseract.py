@@ -9,10 +9,7 @@ import pytesseract
 import time
 import os
 import multiprocessing
-from pdf2image import convert_from_path
 import psutil
-from tkinter import filedialog
-from tkinter import *
 import fitz
 import numpy as np
 from PIL import Image
