@@ -15,10 +15,11 @@ import numpy as np
 from PIL import Image
 import io
 import math
-
+import platform
 custom_config = r' -l eng --oem 3 --psm 3 '
 #Set tesseract.exe full path. 
-pytesseract.pytesseract.tesseract_cmd = r'c:\Program Files\Tesseract-OCR\tesseract.exe'
+if platform.system() == "Windows":
+    pytesseract.pytesseract.tesseract_cmd = r'c:\Program Files\Tesseract-OCR\tesseract.exe'
 batch_size = 50
 #========================Multiprocessing===============
 def worker(image):
