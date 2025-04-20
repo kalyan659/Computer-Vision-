@@ -43,23 +43,10 @@ def batch_process(pages_all,  file_name, core, batch_size):
     for text in results:
         text =text.strip()
         all_text = all_text + '\n' + text
-        #write file into text file
-        try:
-            with open('Out_Text'+'/'+ file_name + ".txt", "a", encoding="utf-8") as f:
-              f.write(text)
-            f.close()
-        except:
-            print('Error :')
-            pass         
+         
 #==================== Image to Text Convertor Module  ============================
 def Image_To_Text(file_path, pdf_document, progress_bar):
     global all_text
-    all_text = ''
-    #make a output folder for text output
-    if os.path.exists('Out_Text'):
-        pass
-    else:
-        os.makedirs('Out_Text')
     
     all_file_page=0
     per_page_time = 'NA'
@@ -69,6 +56,7 @@ def Image_To_Text(file_path, pdf_document, progress_bar):
     #start timer for  OCR
     start_time_program = time.time()
     if  file_path.upper().endswith('.PDF'):
+        try:
             pages_all = []
             #=================  pdf2image  ===========================
             #split out file name
@@ -109,6 +97,8 @@ def Image_To_Text(file_path, pdf_document, progress_bar):
                 progress_bar.progress(progress / 100.0)
             all_file_page = all_file_page + page_in_file
             print('The text file is in folder: Out_Text')
+        except Exception  as e:
+            return 0 , 'error :' + str(e)
     else:
         print('Select one pdf')
     
