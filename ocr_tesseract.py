@@ -71,7 +71,9 @@ def Image_To_Text(file_path, pdf_document, progress_bar):
             mat = fitz.Matrix(zoom, zoom)
             batch_no = 1
             progress = 0
+            print('processing----')
             for i, page in enumerate(doc, start=1):
+                print('processing image----')
                 pix = page.get_pixmap(matrix=mat)
                 #image_name = f"Page_{i}.{output_format}"
                 #pix.save(image_name)
@@ -82,6 +84,7 @@ def Image_To_Text(file_path, pdf_document, progress_bar):
                 pages_all.append(img)
                 # process first 50 pages
                 if i%batch_size == 0:
+                    print('processing text----')
                     batch_process(pages_all, file_name, core, batch_size)
                     progress = int((batch_no*batch_size) / page_in_file * 100)
                     progress_bar.progress(progress / 100.0)
