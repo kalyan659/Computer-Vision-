@@ -21,7 +21,7 @@ if uploaded_file is not None:
         st.image("File", caption="Uploaded File")
     except Exception as e:
         file_name = uploaded_file.name
-        pdf_document = fitz.open(stream=uploaded_file.read())
+        pdf_document = fitz.open(stream=uploaded_file.read(), repair=True)
         st.success("PDF file uploaded successfully!")
         st.write(f"Page count: {pdf_document.page_count}")
     ocr_text = ''
