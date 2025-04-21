@@ -25,7 +25,13 @@ if uploaded_file is not None:
             pdf_document = fitz.open(stream=uploaded_file.read(), filetype="pdf")
             if pdf_document.is_encrypted:
                 st.write("PDF is encrypted")
+            elif pdf_document.page_count > 0:
+                st.success("PDF file uploaded successfully!")
+                st.write(f"Page count: {pdf_document.page_count}")
             else:
+                with open(file_name, "rb") as f:
+                data = f.read()
+                pdf_document = fitz.open("pdf", data)
                 st.success("PDF file uploaded successfully!")
                 st.write(f"Page count: {pdf_document.page_count}")
         except Exception as e:
