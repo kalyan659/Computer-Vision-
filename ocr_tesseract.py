@@ -106,6 +106,8 @@ def Image_To_Text(file_path, pdf_document, progress_bar):
         print('Select one pdf')
     
     total_time= (time.time() - start_time_program)
+    print("--- %s total Reading Time in seconds ---" % total_time)
+    print('all_file_page :',all_file_page)
     if all_file_page>0:
         per_page_time=(total_time/all_file_page)
         print("--- %s Per Page Reading Time in seconds ---" % per_page_time)
