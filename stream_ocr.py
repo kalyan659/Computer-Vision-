@@ -23,8 +23,11 @@ if uploaded_file is not None:
         try:
             file_name = uploaded_file.name
             pdf_document = fitz.open(stream=uploaded_file.read(), filetype="pdf")
-            st.success("PDF file uploaded successfully!")
-            st.write(f"Page count: {pdf_document.page_count}")
+            if pdf_document.is_encrypted:
+                st.write("PDF is encrypted")
+            else:
+                st.success("PDF file uploaded successfully!")
+                st.write(f"Page count: {pdf_document.page_count}")
         except Exception as e:
             st.write(f"Error opening outside Streamlit: {e}")
     ocr_text = ''
