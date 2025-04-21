@@ -23,6 +23,7 @@ if uploaded_file is not None:
         file_name = uploaded_file.name
         pdf_document = fitz.open(stream=uploaded_file.read())
         st.success("PDF file uploaded successfully!")
+        st.write(f"Page count: {pdf_document.page_count}")
     ocr_text = ''
     if st.button("Run OCR"):
         st.info("Performing OCR...")
