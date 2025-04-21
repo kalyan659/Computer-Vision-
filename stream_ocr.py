@@ -30,7 +30,7 @@ if uploaded_file is not None:
                 st.write(f"Page count: {pdf_document.page_count}")
             else:
                 with open(file_name, "rb") as f:
-                data = f.read()
+                    data = f.read()
                 pdf_document = fitz.open("pdf", data)
                 st.success("PDF file uploaded successfully!")
                 st.write(f"Page count: {pdf_document.page_count}")
