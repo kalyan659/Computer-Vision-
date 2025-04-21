@@ -20,7 +20,7 @@ custom_config = r' -l eng --oem 3 --psm 3 '
 #Set tesseract.exe full path. 
 if platform.system() == "Windows":
     pytesseract.pytesseract.tesseract_cmd = r'c:\Program Files\Tesseract-OCR\tesseract.exe'
-batch_size = 50
+batch_size = 10
 #========================Multiprocessing===============
 def worker(image):
     #Performs OCR on an image and returns the text
