@@ -26,7 +26,7 @@ if uploaded_file is not None:
             st.success("PDF file uploaded successfully!")
             st.write(f"Page count: {pdf_document.page_count}")
         except Exception as e:
-            print(f"Error opening outside Streamlit: {e}")
+            st.write(f"Error opening outside Streamlit: {e}")
     ocr_text = ''
     if st.button("Run OCR"):
         st.info("Performing OCR...")
