@@ -72,6 +72,7 @@ def Image_To_Text(file_path, pdf_document, progress_bar):
             batch_no = 1
             progress = 0
             print('processing----')
+            print('Pages in file: ',page_in_file)
             for i, page in enumerate(doc, start=1):
                 print('processing image----')
                 pix = page.get_pixmap(matrix=mat)
