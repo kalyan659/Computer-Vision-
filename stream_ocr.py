@@ -22,7 +22,7 @@ if uploaded_file is not None:
     except Exception as e:
         try:
             file_name = uploaded_file.name
-            pdf_document = fitz.open(stream=uploaded_file.read())
+            pdf_document = fitz.open(stream=uploaded_file.read(), filetype="pdf")
             st.success("PDF file uploaded successfully!")
             st.write(f"Page count: {pdf_document.page_count}")
         except Exception as e:
