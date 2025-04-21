@@ -47,7 +47,7 @@ def batch_process(pages_all,  file_name, core, batch_size):
 #==================== Image to Text Convertor Module  ============================
 def Image_To_Text(file_path, pdf_document, progress_bar):
     global all_text
-    
+    all_text = ''
     all_file_page=0
     per_page_time = 'NA'
     #count physical core
