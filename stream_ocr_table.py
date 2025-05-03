@@ -36,7 +36,7 @@ if selected_file != "-- Select an image --":
     #image_name = uploaded_image.name
     image_name = os.path.splitext(selected_file)[0]
     #st.write(image_path)
-    st.image(image, caption=selected_file, use_column_width=True)
+    st.image(image, caption=selected_file, use_container_width=True)
 
     # OCR the image
     with st.spinner("Performing OCR..."):
