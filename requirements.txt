@@ -2,5 +2,5 @@ streamlit
 pillow
 pytesseract
 img2table
-opencv-python
+opencv-python-headless
 pandas
