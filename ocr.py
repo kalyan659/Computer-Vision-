@@ -9,7 +9,6 @@ from img2table.document import Image as IMG
 from img2table.ocr import TesseractOCR
 
 custom_config = r' -l eng --oem 3 --psm 6'
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 ocr_engine = 'tesseract'
                    
 #Image to Text Convertor Module
