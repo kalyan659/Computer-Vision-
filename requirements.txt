@@ -4,3 +4,4 @@ pytesseract
 img2table
 opencv-python-headless
 pandas
+opencv-contrib-python
