@@ -11,6 +11,8 @@ from ocr import Image_To_Text
 import pandas as pd
 import io
 import os
+import warnings
+warnings.filterwarnings('ignore')
 
 st.title("🖼️ OCR Image to Table")
 
