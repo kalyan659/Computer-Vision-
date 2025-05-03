@@ -2,3 +2,4 @@ streamlit
 pillow
 pytesseract
 img2table
+opencv-python
